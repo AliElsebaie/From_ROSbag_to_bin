@@ -10,6 +10,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
+link_libraries(stdc++fs)
+link_libraries(-lstdc++fs)
 
 add_executable (pcd_read read.cpp)
 #add_executable (pcd_read pcl_visualizer_demo.cpp)
