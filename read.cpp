@@ -10,13 +10,16 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <experimental/filesystem>
+#include <iomanip>
+
 
 
 int main (int argc, char** argv){
     
   namespace fs = std::experimental::filesystem;
   std::string path = "../pcd_files";
-
+  
+  int number = 0;
   for (const auto & entry : fs::directory_iterator(path)){
     std::cout << entry.path().filename() << std::endl;
 
@@ -32,12 +35,12 @@ int main (int argc, char** argv){
             << cloud->width * cloud->height
             << " data points from test_pcd.pcd with the following fields: "
             << std::endl;
-    
-    std::stringstream ss;
-    ss << "../bin_files" << "/" << entry.path().filename() << ".bin";
+  
+    std::stringstream co;
+    co << "../bin_files" << "/" << std::setfill('0') << std::setw(6) << number << ".bin";
 
     FILE * stream; 
-    stream = fopen (ss.str().c_str() ,"wb");
+    stream = fopen (co.str().c_str() ,"wb");
 
     for (std::size_t i = 0; i < cloud->points.size (); ++i){
     std::cout << "    " << cloud->points[i].x
@@ -50,6 +53,7 @@ int main (int argc, char** argv){
 
   }
     fclose(stream);
+    number++;
 
   }
 
