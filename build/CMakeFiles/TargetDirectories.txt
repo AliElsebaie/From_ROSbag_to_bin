@@ -1,3 +1,0 @@
-/home/ali/Desktop/From_ROSbag_to_bin/build/CMakeFiles/rebuild_cache.dir
-/home/ali/Desktop/From_ROSbag_to_bin/build/CMakeFiles/pcd_read.dir
-/home/ali/Desktop/From_ROSbag_to_bin/build/CMakeFiles/edit_cache.dir
